@@ -11,7 +11,7 @@ const yearsExperience =
 <section class="grid grid-cols-2 min-h-screen">
   <div
     id="img-experience"
-    style={{ "--image-url": "url(/assets/default.jpg)" }}
+    style={{ "--image-url": "url(/assets/default.webp)" }}
     class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
   >
   </div>
@@ -32,7 +32,7 @@ const yearsExperience =
 <script>
   const onResetImage = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
-    imgExp.style.cssText = "--image-url: url('/assets/default.jpg')";
+    imgExp.style.cssText = "--image-url: url('/assets/default.webp')";
   };
   const onHoverBootcamp = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
