@@ -1,0 +1,9 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<a data-link id={id} class="font-bold cursor-pointer"><slot /></a>

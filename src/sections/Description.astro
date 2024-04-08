@@ -1,24 +1,65 @@
 ---
+import Link from "../components/Link.astro";
+
 // years experience
 const currentTime = new Date().getTime();
 const startingTime = new Date("10-01-2018").getTime();
 const yearsExperience =
   new Date(currentTime - startingTime).getUTCFullYear() - 1970;
-
-// background source
-const bgSrc = "default.jpg";
 ---
 
 <section class="grid grid-cols-2 min-h-screen">
-  <div class=`bg-no-repeat bg-center bg-cover bg-[url(/assets/${bgSrc})]`></div>
+  <div
+    id="img-experience"
+    style={{ "--image-url": "url(/assets/default.jpg)" }}
+    class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
+  >
+  </div>
   <div class="flex justify-center items-center p-10">
     <h1 class="text-lg">
       Hi, my name is Emilie, and I have been working as a software engineer for
       the past {yearsExperience} years. I learned how to code after completing the
-      <strong>Israel Tech Challenge</strong> Bootcamp and then was accepted into
-      one of the biggest cybersecurity companies, <strong>Checkpoint</strong>.
-      After 4 years in corporate, I was drawn to the startup life and joined
-      8fig, a fintech company that, at the time, consisted of 50 people.
+      <Link id="bootcamp">Israel Tech Challenge</Link> Bootcamp and then was accepted
+      into one of the biggest cybersecurity companies, <Link id="checkpoint"
+        >Checkpoint</Link
+      >. After 4 years in corporate, I was drawn to the startup life and joined
+      <Link id="eightfig">8fig</Link>, a fintech company that, at the time,
+      consisted of 50 people.
     </h1>
   </div>
 </section>
+
+<script>
+  const onResetImage = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/default.jpg')";
+  };
+  const onHoverBootcamp = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')";
+  };
+
+  const onHoverCheckpoint = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')";
+  };
+
+  const onHover8fig = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')";
+  };
+
+  const bootcampLink = window.document.querySelector("[data-link]#bootcamp");
+  bootcampLink?.addEventListener("mouseover", onHoverBootcamp);
+  bootcampLink?.addEventListener("mouseout", onResetImage);
+
+  const checkpointLink = window.document.querySelector(
+    "[data-link]#checkpoint"
+  );
+  checkpointLink?.addEventListener("mouseover", onHoverCheckpoint);
+  checkpointLink?.addEventListener("mouseout", onResetImage);
+
+  const eightfigLink = window.document.querySelector("[data-link]#eightfig");
+  eightfigLink?.addEventListener("mouseover", onHover8fig);
+  eightfigLink?.addEventListener("mouseout", onResetImage);
+</script>
