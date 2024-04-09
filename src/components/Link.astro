@@ -6,4 +6,37 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<a data-link id={id} class="font-bold cursor-pointer"><slot /></a>
+<a data-link id={id} class="cursor-pointer">
+  <slot />
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    position: relative;
+  }
+  a:hover {
+    color: white;
+    font-weight: 500;
+  }
+  a::before {
+    content: "";
+    background: rgb(255, 193, 23);
+    background: linear-gradient(
+      200deg,
+      rgba(255, 193, 23, 1) 30%,
+      rgba(23, 75, 255, 1) 70%
+    );
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 2px;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover::before {
+    bottom: 0;
+    height: 100%;
+  }
+</style>
