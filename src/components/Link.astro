@@ -6,19 +6,19 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<a data-link id={id} class="cursor-pointer">
+<span data-link id={id} class="cursor-pointer">
   <slot />
-</a>
+</span>
 
 <style>
-  a {
+  span {
     text-decoration: none;
     position: relative;
   }
-  a:hover {
+  span:hover {
     color: white;
   }
-  a::after {
+  span::after {
     content: "";
     background: rgb(255, 193, 23);
     background: linear-gradient(
@@ -34,7 +34,7 @@ const { id } = Astro.props;
     z-index: -1;
     transition: all 0.3s ease-in-out;
   }
-  a:hover::after {
+  span:hover::after {
     bottom: 0;
     height: 100%;
   }
