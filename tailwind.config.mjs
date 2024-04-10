@@ -13,10 +13,15 @@ export default {
 					'45%': { transform: 'rotate(10.0deg)' },
 					'60%': { transform: 'rotate(0.0deg)' },
 					'100%': { transform: 'rotate(0.0deg)' },
-				}
+				},
+				fadeIn: {
+					'0%': { opacity: 0 },
+					'100%': { opacity: 1 },
+				},
 			},
 			animation: {
-				wave: 'wave 2s infinite'
+				wave: 'wave 2s infinite',
+				fadeIn: 'fadeIn ease 3s;'
 			}
 		}
 	},
