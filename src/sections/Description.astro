@@ -1,5 +1,6 @@
 ---
 import Link from "../components/Link.astro";
+import LayoutDescription from "../layouts/LayoutDescription.astro";
 
 // years experience
 const currentTime = new Date().getTime();
@@ -8,7 +9,7 @@ const yearsExperience =
   new Date(currentTime - startingTime).getUTCFullYear() - 1970;
 ---
 
-<section class="grid grid-cols-2 min-h-screen">
+<LayoutDescription>
   <div
     id="img-experience"
     style={{ "--image-url": "url(/assets/default.png)" }}
@@ -27,39 +28,39 @@ const yearsExperience =
       </h1>
     </div>
   </div>
+</LayoutDescription>
 
-  <script>
-    const onResetImage = () => {
-      const imgExp = document.querySelector("#img-experience") as HTMLElement;
-      imgExp.style.cssText = "--image-url: url('/assets/default.png')";
-    };
-    const onHoverBootcamp = () => {
-      const imgExp = document.querySelector("#img-experience") as HTMLElement;
-      imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')";
-    };
+<script>
+  const onResetImage = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/default.png')";
+  };
+  const onHoverBootcamp = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')";
+  };
 
-    const onHoverCheckpoint = () => {
-      const imgExp = document.querySelector("#img-experience") as HTMLElement;
-      imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')";
-    };
+  const onHoverCheckpoint = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')";
+  };
 
-    const onHover8fig = () => {
-      const imgExp = document.querySelector("#img-experience") as HTMLElement;
-      imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')";
-    };
+  const onHover8fig = () => {
+    const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')";
+  };
 
-    const bootcampLink = window.document.querySelector("[data-link]#bootcamp");
-    bootcampLink?.addEventListener("mouseover", onHoverBootcamp);
-    bootcampLink?.addEventListener("mouseout", onResetImage);
+  const bootcampLink = window.document.querySelector("[data-link]#bootcamp");
+  bootcampLink?.addEventListener("mouseover", onHoverBootcamp);
+  bootcampLink?.addEventListener("mouseout", onResetImage);
 
-    const checkpointLink = window.document.querySelector(
-      "[data-link]#checkpoint"
-    );
-    checkpointLink?.addEventListener("mouseover", onHoverCheckpoint);
-    checkpointLink?.addEventListener("mouseout", onResetImage);
+  const checkpointLink = window.document.querySelector(
+    "[data-link]#checkpoint"
+  );
+  checkpointLink?.addEventListener("mouseover", onHoverCheckpoint);
+  checkpointLink?.addEventListener("mouseout", onResetImage);
 
-    const eightfigLink = window.document.querySelector("[data-link]#eightfig");
-    eightfigLink?.addEventListener("mouseover", onHover8fig);
-    eightfigLink?.addEventListener("mouseout", onResetImage);
-  </script>
-</section>
+  const eightfigLink = window.document.querySelector("[data-link]#eightfig");
+  eightfigLink?.addEventListener("mouseover", onHover8fig);
+  eightfigLink?.addEventListener("mouseout", onResetImage);
+</script>
