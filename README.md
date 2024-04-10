@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+> #ffc117 Yellow - #174bff Blue
+
 ```sh
 npm create astro@latest -- --template basics
 ```
