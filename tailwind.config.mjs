@@ -3,6 +3,12 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			colors: {
+				primary: '#174bff',
+				secondary: '#ffc117',
+				'blue': '#174bff',
+				'yellow': '#ffc117',
+			},
 			keyframes: {
 				wave: {
 					'0%': { transform: 'rotate(0.0deg)' },

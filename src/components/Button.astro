@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { twMerge } from "tailwind-merge";
+
+interface Props extends HTMLAttributes<"button"> {
+  variant?: "default" | "ghost";
+}
+
+const { variant = "default", ...props } = Astro.props;
+
+const mapClass = {
+  default:
+    "text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-300  dark:bg-primary dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+  ghost:
+    "text-black border-2 border-blue border-solid hover:border-secondary focus:outline-none focus:ring-2 focus:ring-blue-300",
+};
+---
+
+<button
+  class={twMerge(
+    "font-medium rounded-full text-sm px-5 py-2.5 text-center cursor-pointer",
+    mapClass[variant],
+    Astro.props.class
+  )}
+  {...props}
+>
+  <slot />
+</button>
