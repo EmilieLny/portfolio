@@ -18,7 +18,8 @@ const yearsExperience =
     class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
   >
   </div>
-  <div class="flex flex-col justify-center items-start p-10">
+  <div class="flex flex-col justify-between items-start p-10 gap-4">
+    <div></div>
     <div class="animate-fadeIn">
       <h1 class="inline-block text-3xl">Hi</h1>
       <span class="inline-block animate-wave text-3xl">👋</span>
@@ -29,14 +30,24 @@ const yearsExperience =
         > . I love creating and <Link id="bootcamp">sharing</Link> my knowledge!
       </h1>
     </div>
-    <div class="animate-fadeIn">
+    <div
+      class="animate-fadeIn flex flex-row justify-evenly items-center w-full"
+    >
       <Button variant="ghost" class="px-2.5">
         <Icon name="cv" size={20} />
       </Button>
-      <Button variant="ghost" class="px-2.5">
+      <Button
+        variant="ghost"
+        class="px-2.5"
+        onclick="window.open('https://github.com/EmilieLny','_blank')"
+      >
         <Icon name="github" size={20} />
       </Button>
-      <Button variant="ghost" class="px-2.5">
+      <Button
+        variant="ghost"
+        class="px-2.5"
+        onclick="window.open('https://www.linkedin.com/in/emilielnybaltman/','_blank')"
+      >
         <Icon name="linkedin" size={20} />
       </Button>
     </div>
