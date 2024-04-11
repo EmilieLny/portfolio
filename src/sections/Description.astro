@@ -36,20 +36,24 @@ const yearsExperience =
 <script>
   const onResetImage = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.setAttribute("alt", "Experience default");
     imgExp.style.cssText = "--image-url: url('/assets/default.png')";
   };
   const onHoverBootcamp = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.setAttribute("alt", "Experience bootcamp");
     imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')";
   };
 
   const onHoverCheckpoint = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.setAttribute("alt", "Experience checkpoint");
     imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')";
   };
 
   const onHover8fig = () => {
     const imgExp = document.querySelector("#img-experience") as HTMLElement;
+    imgExp.setAttribute("alt", "Experience 8fig");
     imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')";
   };
 
