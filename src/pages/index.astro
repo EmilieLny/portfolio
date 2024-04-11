@@ -5,4 +5,29 @@ import Description from "../sections/Description.astro";
 
 <Layout title="Emi's portfolio" description="Welcome to Emi's portfolio">
   <Description />
+  <button>Smooth Scroll to #section-1</button>
+  <div id="two" class="min-h-screen bg-slate-500">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
 </Layout>
+
+<script>
+  const onScrollSection = () => {
+    const section = document.getElementById("two");
+    if (section) {
+      const sectionTop = section.offsetTop;
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const test = window.document.querySelector("button");
+  test?.addEventListener("click", onScrollSection);
+</script>
