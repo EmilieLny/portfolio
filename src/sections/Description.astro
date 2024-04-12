@@ -1,8 +1,8 @@
 ---
-import Button from "../components/Button.astro";
-import Link from "../components/Link.astro";
-import LayoutDescription from "../layouts/LayoutDescription.astro";
-import { Icon } from "astro-icon/components";
+import Button from '../components/Button.astro'
+import Link from '../components/Link.astro'
+import LayoutDescription from '../layouts/LayoutDescription.astro'
+import { Icon } from 'astro-icon/components'
 
 // years experience
 const currentTime = new Date().getTime()
@@ -11,46 +11,43 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 ---
 
 <LayoutDescription>
-  <div
-    id="img-experience"
-    style={{ "--image-url": "url(/assets/default.png)" }}
-    class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
-  >
-  </div>
-  <div class="flex flex-col justify-between items-start p-10 gap-4">
-    <div></div>
-    <div class="animate-fadeIn">
-      <h1 class="inline-block text-3xl">Hi</h1>
-      <span class="inline-block animate-wave text-3xl">👋</span>
-      <h1 class="inline text-3xl">
-        , I'm Emilie a Software Engineer with {yearsExperience} years experience
-        working in <Link id="checkpoint">corporate</Link> and <Link
-          id="eightfig">startup</Link
-        > . I love creating and <Link id="bootcamp">sharing</Link> my knowledge!
-      </h1>
-    </div>
-    <div
-      class="animate-fadeIn flex flex-row justify-evenly items-center w-full"
-    >
-      <Button variant="ghost" class="px-2.5">
-        <Icon name="cv" size={20} />
-      </Button>
-      <Button
-        variant="ghost"
-        class="px-2.5"
-        onclick="window.open('https://github.com/EmilieLny/','_blank')"
-      >
-        <Icon name="github" size={20} />
-      </Button>
-      <Button
-        variant="ghost"
-        class="px-2.5"
-        onclick="window.open('https://www.linkedin.com/in/emilielnybaltman/','_blank')"
-      >
-        <Icon name="linkedin" size={20} />
-      </Button>
-    </div>
-  </div>
+	<div
+		id="img-experience"
+		style={{ '--image-url': 'url(/assets/default.png)' }}
+		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
+	>
+	</div>
+	<div class="flex flex-col items-start justify-between gap-4 p-10">
+		<div></div>
+		<div class="animate-fadeIn">
+			<h1 class="inline-block text-3xl">Hi</h1>
+			<span class="inline-block animate-wave text-3xl">👋</span>
+			<h1 class="inline text-3xl">
+				, I'm Emilie a Software Engineer with <strong>{yearsExperience} years</strong> experience working
+				in <Link id="checkpoint">corporate</Link> and <Link id="eightfig">startup</Link> . I love creating
+				and <Link id="bootcamp">sharing</Link> with inspiring people. My focus is <strong>React.js</strong>!
+			</h1>
+		</div>
+		<div class="flex w-full animate-fadeIn flex-row items-center justify-evenly">
+			<Button variant="ghost" class="px-2.5" onclick="window.open('/assets/cv.pdf', '_blank')">
+				<Icon name="cv" size={20} />
+			</Button>
+			<Button
+				variant="ghost"
+				class="px-2.5"
+				onclick="window.open('https://github.com/EmilieLny/','_blank')"
+			>
+				<Icon name="github" size={20} />
+			</Button>
+			<Button
+				variant="ghost"
+				class="px-2.5"
+				onclick="window.open('https://www.linkedin.com/in/emilielnybaltman/','_blank')"
+			>
+				<Icon name="linkedin" size={20} />
+			</Button>
+		</div>
+	</div>
 </LayoutDescription>
 
 <script>

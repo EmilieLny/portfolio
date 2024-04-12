@@ -1,7 +1,7 @@
 ---
 interface Props {
-  title: string;
-  description: string;
+	title: string;
+	description: string;
 }
 
 const { title, description } = Astro.props;
@@ -9,40 +9,61 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body class="min-h-screen font-sans">
-    <span id="circle" class="circle"></span>
-    <slot />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen font-sans">
+		<span id="circle" class="circle"></span>
+		<slot />
+	</body>
 </html>
 
-<style>
-  body {
-    position: relative;
-    cursor: none;
-  }
+<style is:global>
+	body {
+		position: relative;
+		cursor: none;
+	}
 
-  .circle {
-    position: absolute;
-    background-color: blue;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-  }
+	.circle {
+		position: absolute;
+		background-color: blue;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		top: 0;
+		left: 0;
+		z-index: 10;
+	}
+
+	.circle .hoverable:hover {
+		background-color: orange;
+		width: 30px;
+		height: 30px;
+	}
 </style>
 <script>
-  const circle = document.querySelector(".circle") as HTMLElement;
-  document.addEventListener("mousemove", (e) => {
-    circle.style.top = e.pageY.toString() + "px";
-    circle.style.left = e.pageX.toString() + "px";
-  });
+	const circle = document.querySelector('.circle') as HTMLElement
+	document.addEventListener('mousemove', (e) => {
+		circle.style.top = `${e.pageY}px`;
+		circle.style.left = `${e.pageX}px`;
+	})
+
+	const onMouseHover = () => {
+		circle.style.backgroundColor = 'orange'
+	}
+
+	const onMouseHoverOut = () => {
+		circle.style.backgroundColor = 'blue'
+	}
+
+	const $hoverables = document.querySelectorAll('.hoverable')
+	for (let i = 0; i < $hoverables.length; i++) {
+		$hoverables[i].addEventListener('mouseenter', onMouseHover)
+		$hoverables[i].addEventListener('mouseleave', onMouseHoverOut)
+	}
 </script>
