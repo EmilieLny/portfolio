@@ -1,70 +1,68 @@
 ---
-import Link from "../components/Link.astro";
-import LayoutDescription from "../layouts/LayoutDescription.astro";
+import Link from '../components/Link.astro'
+import LayoutDescription from '../layouts/LayoutDescription.astro'
 
 // years experience
-const currentTime = new Date().getTime();
-const startingTime = new Date("10-01-2018").getTime();
-const yearsExperience =
-  new Date(currentTime - startingTime).getUTCFullYear() - 1970;
+const currentTime = new Date().getTime()
+const startingTime = new Date('10-01-2018').getTime()
+const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 1970
 ---
 
 <LayoutDescription>
-  <div
-    id="img-experience"
-    style={{ "--image-url": "url(/assets/default.png)" }}
-    class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
-  >
-  </div>
-  <div class="flex flex-col justify-center items-start p-10">
-    <div class="animate-fadeIn">
-      <h1 class="inline-block text-3xl">Hi</h1>
-      <span class="inline-block animate-wave text-3xl">👋</span>
-      <h1 class="inline text-3xl">
-        , I'm Emilie a Software Engineer with {yearsExperience} years experience
-        working in <Link id="checkpoint">corporate</Link> and <Link
-          id="eightfig">startup</Link
-        > . I love creating and <Link id="bootcamp">sharing</Link> my knowledge!
-      </h1>
-    </div>
-  </div>
+	<div
+		id="img-experience"
+		style={{ '--image-url': 'url(/assets/default.png)' }}
+		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
+	>
+	</div>
+	<div class="flex flex-col items-start justify-center p-10">
+		<div class="animate-fadeIn">
+			<h1 class="inline-block text-3xl">Hi</h1>
+			<span class="inline-block animate-wave text-3xl">👋</span>
+			<h1 class="inline text-3xl">
+				, I'm Emilie a Software Engineer with {yearsExperience} years experience working in <Link
+					id="checkpoint">corporate</Link
+				> and <Link id="eightfig">startup</Link> . I love creating and <Link id="bootcamp"
+					>sharing</Link
+				> my knowledge!
+			</h1>
+		</div>
+	</div>
 </LayoutDescription>
 
 <script>
-  const onResetImage = () => {
-    const imgExp = document.querySelector("#img-experience") as HTMLElement;
-    imgExp.setAttribute("alt", "Experience default");
-    imgExp.style.cssText = "--image-url: url('/assets/default.png')";
-  };
-  const onHoverBootcamp = () => {
-    const imgExp = document.querySelector("#img-experience") as HTMLElement;
-    imgExp.setAttribute("alt", "Experience bootcamp");
-    imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')";
-  };
+	const onResetImage = () => {
+		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		imgExp.setAttribute('alt', 'Experience default')
+		imgExp.style.cssText = "--image-url: url('/assets/default.png')"
+	}
+	const onHoverBootcamp = () => {
+		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		imgExp.setAttribute('alt', 'Experience bootcamp')
+		imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')"
+	}
 
-  const onHoverCheckpoint = () => {
-    const imgExp = document.querySelector("#img-experience") as HTMLElement;
-    imgExp.setAttribute("alt", "Experience checkpoint");
-    imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')";
-  };
+	const onHoverCheckpoint = () => {
+		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		imgExp.setAttribute('alt', 'Experience checkpoint')
+		imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')"
+	}
 
-  const onHover8fig = () => {
-    const imgExp = document.querySelector("#img-experience") as HTMLElement;
-    imgExp.setAttribute("alt", "Experience 8fig");
-    imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')";
-  };
+	const onHover8fig = () => {
+		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		imgExp.setAttribute('alt', 'Experience 8fig')
+		imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')"
+	}
 
-  const bootcampLink = window.document.querySelector("[data-link]#bootcamp");
-  bootcampLink?.addEventListener("mouseover", onHoverBootcamp);
-  bootcampLink?.addEventListener("mouseout", onResetImage);
+	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
+	bootcampLink?.addEventListener('mouseover', onHoverBootcamp)
+	bootcampLink?.addEventListener('mouseout', onResetImage)
 
-  const checkpointLink = window.document.querySelector(
-    "[data-link]#checkpoint"
-  );
-  checkpointLink?.addEventListener("mouseover", onHoverCheckpoint);
-  checkpointLink?.addEventListener("mouseout", onResetImage);
+	const checkpointLink = window.document.querySelector('[data-link]#checkpoint')
+	checkpointLink?.addEventListener('mouseover', onHoverCheckpoint)
+	checkpointLink?.addEventListener('mouseout', onResetImage)
 
-  const eightfigLink = window.document.querySelector("[data-link]#eightfig");
-  eightfigLink?.addEventListener("mouseover", onHover8fig);
-  eightfigLink?.addEventListener("mouseout", onResetImage);
+	const eightfigLink = window.document.querySelector('[data-link]#eightfig')
+	eightfigLink?.addEventListener('mouseover', onHover8fig)
+	eightfigLink?.addEventListener('mouseout', onResetImage)
 </script>
