@@ -13,7 +13,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 <LayoutDescription>
 	<div
 		id="img-experience"
-		style={{ '--image-url': 'url(/assets/default.png)' }}
+		style={{ '--image-url': 'url(/portfolio/assets/default.png)' }}
 		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
 	>
 	</div>
@@ -31,7 +31,11 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 			</h1>
 		</div>
 		<div class="flex w-full animate-fadeIn flex-row items-center justify-evenly">
-			<Button variant="ghost" class="px-2.5" onclick="window.open('/assets/cv.pdf', '_blank')">
+			<Button
+				variant="ghost"
+				class="px-2.5"
+				onclick="window.open('/portfolio/assets/cv.pdf', '_blank')"
+			>
 				<Icon name="cv" size={20} />
 			</Button>
 			<Button
@@ -56,24 +60,24 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 	const onResetImage = () => {
 		const imgExp = document.querySelector('#img-experience') as HTMLElement
 		imgExp.setAttribute('alt', 'Experience default')
-		imgExp.style.cssText = "--image-url: url('/assets/default.png')"
+		imgExp.style.cssText = "--image-url: url('/portfolio/assets/default.png')"
 	}
 	const onHoverBootcamp = () => {
 		const imgExp = document.querySelector('#img-experience') as HTMLElement
 		imgExp.setAttribute('alt', 'Experience bootcamp')
-		imgExp.style.cssText = "--image-url: url('/assets/bootcamp.png')"
+		imgExp.style.cssText = "--image-url: url('/portfolio/assets/bootcamp.png')"
 	}
 
 	const onHoverCheckpoint = () => {
 		const imgExp = document.querySelector('#img-experience') as HTMLElement
 		imgExp.setAttribute('alt', 'Experience checkpoint')
-		imgExp.style.cssText = "--image-url: url('/assets/checkpoint.png')"
+		imgExp.style.cssText = "--image-url: url('/portfolio/assets/checkpoint.png')"
 	}
 
 	const onHover8fig = () => {
 		const imgExp = document.querySelector('#img-experience') as HTMLElement
 		imgExp.setAttribute('alt', 'Experience 8fig')
-		imgExp.style.cssText = "--image-url: url('/assets/8fig.jpg')"
+		imgExp.style.cssText = "--image-url: url('/portfolio/assets/8fig.jpg')"
 	}
 
 	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
