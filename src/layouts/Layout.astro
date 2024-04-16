@@ -43,6 +43,16 @@ const { title, description } = Astro.props
 	.circle .hoverable:hover {
 		background-color: orange;
 	}
+
+	@media only screen and (max-width: 600px) {
+		body {
+			cursor: auto;
+		}
+
+		.circle {
+			display: none;
+		}
+	}
 </style>
 <script>
 	const circle = document.querySelector('.circle') as HTMLElement
