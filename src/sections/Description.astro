@@ -3,6 +3,16 @@ import Button from '../components/Button.astro'
 import Link from '../components/Link.astro'
 import LayoutDescription from '../layouts/LayoutDescription.astro'
 import { Icon } from 'astro-icon/components'
+import { getImage } from 'astro:assets'
+import BootcampImage from '../assets/bootcamp_desktop.png'
+import CheckpointImage from '../assets/checkpoint_desktop.png'
+import DefaultImage from '../assets/default_desktop.png'
+import EightfigImage from '../assets/8fig_desktop.png'
+
+const opBootcampImage = await getImage({ src: BootcampImage })
+const opCheckpointImage = await getImage({ src: CheckpointImage })
+const opDefaultImage = await getImage({ src: DefaultImage })
+const opEightfigImage = await getImage({ src: EightfigImage })
 
 // years experience
 const currentTime = new Date().getTime()
@@ -13,7 +23,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 <LayoutDescription>
 	<div
 		id="img-experience"
-		style={{ '--image-url': 'url(/portfolio/assets/default.png)' }}
+		style={`background-image: url('${opDefaultImage.src}')`}
 		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
 	>
 	</div>
@@ -25,7 +35,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 			<h1 class="inline text-3xl">
 				, I'm Emilie a Software Engineer with {yearsExperience} years experience working in <Link
 					id="checkpoint">corporate</Link
-				> and <Link id="eightfig">startup</Link> . I love creating and <Link id="bootcamp"
+				> and <Link id="eightfig">startup</Link>. I love creating and <Link id="bootcamp"
 					>sharing</Link
 				> with inspiring people. My focus is React.js!
 			</h1>
@@ -56,28 +66,28 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 	</div>
 </LayoutDescription>
 
-<script>
+<script define:vars={{ opBootcampImage, opCheckpointImage, opDefaultImage, opEightfigImage }}>
 	const onResetImage = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience default')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/default.png')"
+		imgExp.style.backgroundImage = `url("${opDefaultImage.src}")`
 	}
 	const onHoverBootcamp = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience bootcamp')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/bootcamp.png')"
+		imgExp.style.backgroundImage = `url("${opBootcampImage.src}")`
 	}
 
 	const onHoverCheckpoint = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience checkpoint')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/checkpoint.png')"
+		imgExp.style.backgroundImage = `url("${opCheckpointImage.src}")`
 	}
 
 	const onHover8fig = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience 8fig')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/8fig.jpg')"
+		imgExp.style.backgroundImage = `url("${opEightfigImage.src}")`
 	}
 
 	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
