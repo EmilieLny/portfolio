@@ -12,18 +12,18 @@ const mapClass = {
 	default:
 		'focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800 bg-primary text-white hover:bg-secondary focus:outline-none focus:ring-2 dark:bg-primary',
 	ghost:
-		'focus:ring-blue-300 border-2 border-solid border-blue text-black hover:border-secondary focus:outline-none focus:ring-2'
+		'focus:ring-blue-300 border-2 border-solid border-blue text-black hover:border-secondary hover:bg-secondary focus:outline-none focus:ring-2'
 }
 ---
 
 <button
-  class={twMerge(
-    "font-medium rounded-full text-sm px-5 py-2.5 text-center cursor-none",
-    "hoverable",
-    mapClass[variant],
-    Astro.props.class
-  )}
-  {...props}
+	class={twMerge(
+		'font-medium rounded-full text-sm px-5 py-2.5 text-center cursor-none',
+		'hoverable',
+		mapClass[variant],
+		Astro.props.class
+	)}
+	{...props}
 >
-  <slot />
+	<slot />
 </button>

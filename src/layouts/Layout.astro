@@ -1,10 +1,10 @@
 ---
 interface Props {
-	title: string;
-	description: string;
+	title: string
+	description: string
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
@@ -42,15 +42,13 @@ const { title, description } = Astro.props;
 
 	.circle .hoverable:hover {
 		background-color: orange;
-		width: 30px;
-		height: 30px;
 	}
 </style>
 <script>
 	const circle = document.querySelector('.circle') as HTMLElement
 	document.addEventListener('mousemove', (e) => {
-		circle.style.top = `${e.pageY}px`;
-		circle.style.left = `${e.pageX}px`;
+		circle.style.top = `${e.pageY}px`
+		circle.style.left = `${e.pageX}px`
 	})
 
 	const onMouseHover = () => {
