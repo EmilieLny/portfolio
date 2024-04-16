@@ -1,8 +1,13 @@
 ---
+import { Image, Picture } from 'astro:assets'
 import Button from '../components/Button.astro'
 import Link from '../components/Link.astro'
 import LayoutDescription from '../layouts/LayoutDescription.astro'
 import { Icon } from 'astro-icon/components'
+import DefaultImg from '../assets/default.png'
+import BootcamoImg from '../assets/bootcamp.png'
+import CheckpointImg from '../assets/checkpoint.png'
+import EightfigImg from '../assets/8fig.jpg'
 
 // years experience
 const currentTime = new Date().getTime()
@@ -11,12 +16,14 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 ---
 
 <LayoutDescription>
-	<div
+	<Picture src={DefaultImg} alt="default image" id="img-experience" />
+	<!-- <Image src={DefaultImg} alt="default image" id="img-experience" inferSize={false} /> -->
+	<!-- <div
 		id="img-experience"
 		style={{ '--image-url': 'url(/portfolio/assets/default.png)' }}
 		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
 	>
-	</div>
+	</div> -->
 	<div class="flex flex-col items-start justify-between gap-4 p-10">
 		<div></div>
 		<div class="animate-fadeIn">
@@ -56,28 +63,28 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 	</div>
 </LayoutDescription>
 
-<script>
+<script define:vars={{ DefaultImg, BootcamoImg, CheckpointImg, EightfigImg }}>
 	const onResetImage = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience default')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/default.png')"
+		imgExp.src = DefaultImg.src
 	}
 	const onHoverBootcamp = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience bootcamp')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/bootcamp.png')"
+		imgExp.src = BootcamoImg.src
 	}
 
 	const onHoverCheckpoint = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience checkpoint')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/checkpoint.png')"
+		imgExp.src = CheckpointImg.src
 	}
 
 	const onHover8fig = () => {
-		const imgExp = document.querySelector('#img-experience') as HTMLElement
+		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience 8fig')
-		imgExp.style.cssText = "--image-url: url('/portfolio/assets/8fig.jpg')"
+		imgExp.src = EightfigImg.src
 	}
 
 	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
