@@ -4,25 +4,19 @@ import Link from '../components/Link.astro'
 import LayoutDescription from '../layouts/LayoutDescription.astro'
 import { Icon } from 'astro-icon/components'
 import { getImage } from 'astro:assets'
-import BootcampImage from '../assets/bootcamp_desktop.png'
-import BootcampImageMobile from '../assets/bootcamp_mobile.png'
-import CheckpoImage from '../assets/checkpoint_desktop.png'
-import CheckpoImageMobile from '../assets/checkpoint_mobile.png'
-import DefaultImage from '../assets/default_desktop.png'
+import EightfigImage from '../assets/8fig.png'
+import BootcampImage from '../assets/bootcamp.png'
+import CheckpointImage from '../assets/checkpoint.png'
+import DefaultImageDesktop from '../assets/default_desktop.png'
 import DefaultImageMobile from '../assets/default_mobile.png'
-import EightfigImage from '../assets/8fig_desktop.png'
-import EightfigImageMobile from '../assets/8fig_mobile.png'
 
 const isMobile = false
 
-const opBootcampImage = await getImage({ src: BootcampImage })
-const opBootcampImgMobile = await getImage({ src: BootcampImageMobile })
-const opCheckpointImage = await getImage({ src: isMobile ? CheckpoImageMobile : CheckpoImage })
-const opCheckpointImgMobile = await getImage({ src: CheckpoImageMobile })
-const opDefaultImage = await getImage({ src: DefaultImage })
+const opEightfigImg = await getImage({ src: EightfigImage })
+const opBootcampImg = await getImage({ src: BootcampImage })
+const opCheckpointImg = await getImage({ src: CheckpointImage })
+const opDefaultImageDesktop = await getImage({ src: DefaultImageDesktop })
 const opDefaultImgMobile = await getImage({ src: DefaultImageMobile })
-const opEightfigImage = await getImage({ src: EightfigImage })
-const opEightfigImgMoblie = await getImage({ src: EightfigImageMobile })
 
 // years experience
 const currentTime = new Date().getTime()
@@ -33,7 +27,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 <LayoutDescription>
 	<div
 		id="img-experience"
-		style={`background-image: url('${opDefaultImage.src}')`}
+		style={`background-image: url('${opDefaultImageDesktop.src}')`}
 		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
 	>
 	</div>
@@ -79,46 +73,37 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 <script
 	is:inline
 	define:vars={{
-		opBootcampImage,
-		opBootcampImgMobile,
-		opCheckpointImage,
-		opCheckpointImgMobile,
-		opDefaultImage,
-		opDefaultImgMobile,
-		opEightfigImage,
-		opEightfigImgMoblie
+		opEightfigImg,
+		opBootcampImg,
+		opCheckpointImg,
+		opDefaultImageDesktop,
+		opDefaultImgMobile
 	}}
 >
 	const onResetImage = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience default')
 		let isMobile = window.matchMedia('(max-width: 600px)').matches
-		const img = isMobile ? opDefaultImgMobile : opDefaultImage
-		imgExp.style.backgroundImage = `url("${img.src}")`
-	}
-
-	const onHoverBootcamp = () => {
-		const imgExp = document.querySelector('#img-experience')
-		imgExp.setAttribute('alt', 'Experience bootcamp')
-		let isMobile = window.matchMedia('(max-width: 600px)').matches
-		const img = isMobile ? opBootcampImgMobile : opBootcampImage
-		imgExp.style.backgroundImage = `url("${img.src}")`
-	}
-
-	const onHoverCheckpoint = () => {
-		const imgExp = document.querySelector('#img-experience')
-		imgExp.setAttribute('alt', 'Experience checkpoint')
-		let isMobile = window.matchMedia('(max-width: 600px)').matches
-		const img = isMobile ? opCheckpointImgMobile : opCheckpointImage
+		const img = isMobile ? opDefaultImgMobile : opDefaultImageDesktop
 		imgExp.style.backgroundImage = `url("${img.src}")`
 	}
 
 	const onHover8fig = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience 8fig')
-		let isMobile = window.matchMedia('(max-width: 600px)').matches
-		const img = isMobile ? opEightfigImgMoblie : opEightfigImage
-		imgExp.style.backgroundImage = `url("${img.src}")`
+		imgExp.style.backgroundImage = `url("${opEightfigImg.src}")`
+	}
+
+	const onHoverBootcamp = () => {
+		const imgExp = document.querySelector('#img-experience')
+		imgExp.setAttribute('alt', 'Experience bootcamp')
+		imgExp.style.backgroundImage = `url("${opBootcampImg.src}")`
+	}
+
+	const onHoverCheckpoint = () => {
+		const imgExp = document.querySelector('#img-experience')
+		imgExp.setAttribute('alt', 'Experience checkpoint')
+		imgExp.style.backgroundImage = `url("${opCheckpointImg.src}")`
 	}
 
 	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
