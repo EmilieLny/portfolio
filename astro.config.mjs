@@ -8,4 +8,5 @@ export default defineConfig({
   integrations: [tailwind(), icon()],
   site: 'https://EmilieLny.github.io',
   base: '/portfolio',
+  compressHTML: false
 });
