@@ -5,14 +5,23 @@ import LayoutDescription from '../layouts/LayoutDescription.astro'
 import { Icon } from 'astro-icon/components'
 import { getImage } from 'astro:assets'
 import BootcampImage from '../assets/bootcamp_desktop.png'
-import CheckpointImage from '../assets/checkpoint_desktop.png'
+import BootcampImageMobile from '../assets/bootcamp_mobile.png'
+import CheckpoImage from '../assets/checkpoint_desktop.png'
+import CheckpoImageMobile from '../assets/checkpoint_mobile.png'
 import DefaultImage from '../assets/default_desktop.png'
+import DefaultImageMobile from '../assets/default_mobile.png'
 import EightfigImage from '../assets/8fig_desktop.png'
+import EightfigImageMobile from '../assets/8fig_mobile.png'
 
-const opBootcampImage = await getImage({ src: BootcampImage })
-const opCheckpointImage = await getImage({ src: CheckpointImage })
-const opDefaultImage = await getImage({ src: DefaultImage })
-const opEightfigImage = await getImage({ src: EightfigImage })
+const isMobile =
+	/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+		navigator.userAgent
+	)
+
+const opBootcampImage = await getImage({ src: isMobile ? BootcampImageMobile : BootcampImage })
+const opCheckpointImage = await getImage({ src: isMobile ? CheckpoImageMobile : CheckpoImage })
+const opDefaultImage = await getImage({ src: isMobile ? DefaultImageMobile : DefaultImage })
+const opEightfigImage = await getImage({ src: isMobile ? EightfigImageMobile : EightfigImage })
 
 // years experience
 const currentTime = new Date().getTime()
