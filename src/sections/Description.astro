@@ -13,15 +13,16 @@ import DefaultImageMobile from '../assets/default_mobile.png'
 import EightfigImage from '../assets/8fig_desktop.png'
 import EightfigImageMobile from '../assets/8fig_mobile.png'
 
-const isMobile =
-	/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
-		navigator.userAgent
-	)
+const isMobile = false
 
-const opBootcampImage = await getImage({ src: isMobile ? BootcampImageMobile : BootcampImage })
+const opBootcampImage = await getImage({ src: BootcampImage })
+const opBootcampImgMobile = await getImage({ src: BootcampImageMobile })
 const opCheckpointImage = await getImage({ src: isMobile ? CheckpoImageMobile : CheckpoImage })
-const opDefaultImage = await getImage({ src: isMobile ? DefaultImageMobile : DefaultImage })
-const opEightfigImage = await getImage({ src: isMobile ? EightfigImageMobile : EightfigImage })
+const opCheckpointImgMobile = await getImage({ src: CheckpoImageMobile })
+const opDefaultImage = await getImage({ src: DefaultImage })
+const opDefaultImgMobile = await getImage({ src: DefaultImageMobile })
+const opEightfigImage = await getImage({ src: EightfigImage })
+const opEightfigImgMoblie = await getImage({ src: EightfigImageMobile })
 
 // years experience
 const currentTime = new Date().getTime()
@@ -44,7 +45,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 			<h1 class="inline text-3xl">
 				, I'm Emilie a Software Engineer with {yearsExperience} years experience working in <Link
 					id="checkpoint">corporate</Link
-				> and <Link id="eightfig">startup</Link>. I love creating and <Link id="bootcamp"
+				> and <Link id="eightfig">startup.</Link> I love creating and <Link id="bootcamp"
 					>sharing</Link
 				> with inspiring people. My focus is React.js!
 			</h1>
@@ -75,28 +76,49 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 	</div>
 </LayoutDescription>
 
-<script define:vars={{ opBootcampImage, opCheckpointImage, opDefaultImage, opEightfigImage }}>
+<script
+	is:inline
+	define:vars={{
+		opBootcampImage,
+		opBootcampImgMobile,
+		opCheckpointImage,
+		opCheckpointImgMobile,
+		opDefaultImage,
+		opDefaultImgMobile,
+		opEightfigImage,
+		opEightfigImgMoblie
+	}}
+>
 	const onResetImage = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience default')
-		imgExp.style.backgroundImage = `url("${opDefaultImage.src}")`
+		let isMobile = window.matchMedia('(max-width: 600px)').matches
+		const img = isMobile ? opDefaultImgMobile : opDefaultImage
+		imgExp.style.backgroundImage = `url("${img.src}")`
 	}
+
 	const onHoverBootcamp = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience bootcamp')
-		imgExp.style.backgroundImage = `url("${opBootcampImage.src}")`
+		let isMobile = window.matchMedia('(max-width: 600px)').matches
+		const img = isMobile ? opBootcampImgMobile : opBootcampImage
+		imgExp.style.backgroundImage = `url("${img.src}")`
 	}
 
 	const onHoverCheckpoint = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience checkpoint')
-		imgExp.style.backgroundImage = `url("${opCheckpointImage.src}")`
+		let isMobile = window.matchMedia('(max-width: 600px)').matches
+		const img = isMobile ? opCheckpointImgMobile : opCheckpointImage
+		imgExp.style.backgroundImage = `url("${img.src}")`
 	}
 
 	const onHover8fig = () => {
 		const imgExp = document.querySelector('#img-experience')
 		imgExp.setAttribute('alt', 'Experience 8fig')
-		imgExp.style.backgroundImage = `url("${opEightfigImage.src}")`
+		let isMobile = window.matchMedia('(max-width: 600px)').matches
+		const img = isMobile ? opEightfigImgMoblie : opEightfigImage
+		imgExp.style.backgroundImage = `url("${img.src}")`
 	}
 
 	const bootcampLink = window.document.querySelector('[data-link]#bootcamp')
