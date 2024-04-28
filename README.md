@@ -1,56 +1,54 @@
-# Astro Starter Kit: Basics
+# Portfolio using Astro
 
-> #ffc117 Yellow - #174bff Blue
+## Overview
 
-```sh
-npm create astro@latest -- --template basics
+Welcome to my portfolio! This static website serves as an interactive resume showcasing my skills, experience, and interests. Built with Astro and TypeScript, this portfolio provides a modern and lightweight alternative to traditional resumes.
+
+## Features
+
+- **Astro**: A modern static site generator that combines the best parts of building websites with React, Vue, Svelte, and traditional static site generators.
+- **TypeScript**: A statically typed superset of JavaScript that enhances code quality and maintainability.
+- **Interactive Design**: Utilizes modern web design principles to create an engaging and user-friendly experience.
+- **Responsive Layout**: Ensures that the portfolio looks great on various devices and screen sizes.
+- **Easy to Update**: As a static website, updating content is as simple as editing the source files and redeploying.
+
+## Usage
+
+To view my portfolio, simply visit the deployed website at [emilielny.github.io/portfolio/](emilielny.github.io/portfolio/)
+## Project Structure
+
+The project structure for my portfolio may look something like this:
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+portfolio/
+│
 ├── src/
+│   ├── assets/
 │   ├── components/
-│   │   └── Card.astro
+│   ├── icons/
+│   ├── pages/
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   └── sections/
+│
+├── public/
+│
+├── .astro/
+├── .gitignore
+├── .vscode
+├── package.json
+├── README.md
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **src/**: Contains the source code of the portfolio.
+- **public/**: Contains static assets such as pdf.
+- **.astro/**: Configuration directory for Astro.
+- **.gitignore**: Specifies intentionally untracked files to ignore.
+- **package.json**: Configuration file for npm dependencies and scripts.
+- **README.md**: The file you're currently reading.
+- **tsconfig.json**: Configuration file for TypeScript.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Dependencies
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro](https://astro.build/): A modern static site generator.
+- [TypeScript](https://www.typescriptlang.org/): A statically typed superset of JavaScript.
