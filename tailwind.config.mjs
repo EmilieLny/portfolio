@@ -33,7 +33,7 @@ export default {
 			animation: {
 				wave: 'wave 2s infinite',
 				fadeIn: 'fadeIn ease 3s;',
-				fadeInLater: 'fadeInLate ease 10s;'
+				fadeInLater: 'fadeInLate ease 8s;'
 			}
 		}
 	},
