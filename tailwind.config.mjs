@@ -24,10 +24,16 @@ export default {
 					'0%': { opacity: 0 },
 					'100%': { opacity: 1 },
 				},
+				fadeInLate: {
+					'0%': { opacity: 0 },
+					'80%': { opacity: 0 },
+					'100%': { opacity: 1 },
+				},
 			},
 			animation: {
 				wave: 'wave 2s infinite',
-				fadeIn: 'fadeIn ease 3s;'
+				fadeIn: 'fadeIn ease 3s;',
+				fadeInLater: 'fadeInLate ease 10s;'
 			}
 		}
 	},

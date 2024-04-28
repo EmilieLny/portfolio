@@ -28,7 +28,7 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 	<div
 		id="img-experience"
 		style={`background-image: url('${opDefaultImageDesktop.src}')`}
-		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)]`
+		class=`bg-no-repeat bg-center bg-cover bg-[image:var(--image-url)] hover:opacity-30	`
 	>
 	</div>
 	<div class="flex flex-col items-start justify-between gap-4 p-10">
@@ -39,10 +39,13 @@ const yearsExperience = new Date(currentTime - startingTime).getUTCFullYear() - 
 			<h1 class="inline text-3xl font-light">
 				, I'm Emilie a Software Engineer with {yearsExperience} years experience working in <Link
 					id="checkpoint">corporate</Link
-				> and <Link id="eightfig">startup</Link>. I love creating and <Link id="bootcamp"
+				> and <Link id="eightfig">startups</Link>. I love creating and <Link id="bootcamp"
 					>sharing</Link
 				> with inspiring people. My focus is React.js!
 			</h1>
+			<h2 class="animate-fadeInLater italic text-primary">
+				You don't beleive me? Hover over the underline text!
+			</h2>
 		</div>
 		<div class="flex w-full animate-fadeIn flex-row items-center justify-evenly">
 			<Button
